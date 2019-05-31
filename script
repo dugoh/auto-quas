@@ -1,0 +1,83 @@
+#!/bin/bash
+git clone https://github.com/simh/simh.git
+
+cd simh
+make vax
+cd ..
+
+(
+  echo '#include <stdlib.h>'
+  tar -xOf compress/compress.tar ucb/compress/gzcompat.c
+)>gzcompat.c
+
+gcc -O -o gzcompat gzcompat.c
+
+cat 4.3BSD-Quasijarus0c/miniroot.Z   | ./gzcompat | gzip -dc > miniroot
+cat 4.3BSD-Quasijarus0c/rootdump.Z   | ./gzcompat | gzip -dc > rootdump
+cat 4.3BSD-Quasijarus0c/src.tar.Z    | ./gzcompat | gzip -dc > src.tar
+cat 4.3BSD-Quasijarus0c/srcsys.tar.Z | ./gzcompat | gzip -dc > srcsys.tar
+cat 4.3BSD-Quasijarus0c/stand.Z      | ./gzcompat | gzip -dc > stand
+cat 4.3BSD-Quasijarus0c/usr.tar.Z    | ./gzcompat | gzip -dc > usr.tar
+
+mkdisttap/mkdisttap.pl > quas.tap
+
+dd if=/dev/zero of=quas.dsk bs=512 count=1216665
+
+cat >config.ini <<__EOF__
+;SET CPU IDLE=QUASIJARUS
+set cr  dis
+set lpt dis
+set rl  dis
+set ts  dis
+set xq  dis
+set rq0 ra82
+att rq0 quas.dsk
+set rq1 dis
+set rq2 dis
+set rq3 dis
+att tq0 quas.tap
+set tti 7b
+set tto 7b
+__EOF__
+
+cat >rootdump.ini <<__EOF__
+DO config.ini
+;SEND AFTER=5000
+EXPECT ">>>"               SEND "boot mua0:\r"                          ;GO
+EXPECT "\r\n\n="           SEND "copy\r"                                ;GO
+EXPECT "From: "            SEND "tms(0,1)\r"                            ;GO
+EXPECT "To: "              SEND "ra(0,1)\r"                             ;GO
+EXPECT "copied\n\r="       SEND "boot\r"                                ;GO
+EXPECT "Boot\n\r: "        SEND "ra(0,1)vmunix\r"                       ;GO
+EXPECT "root device? "     SEND "ra0*\r"                                ;GO
+EXPECT "intr ^C\r\n# "     SEND \
+"disklabel -rw ra0 ra82 \x22Quasijarus\x22 \
+/usr/mdec/rdboot /usr/mdec/bootra\r"                                    ;GO
+EXPECT "bootra\r\n# "      SEND "disk=ra0 type=ra82 tape=tms xtr\r"     ;GO
+EXPECT "cassette\r\n# "    SEND "sync\x3B sync\x3B sync\r"              ;GO
+EXPECT "sync\r\n# " ; QUIT
+BOOT CPU
+__EOF__
+
+cat >install.ini <<__EOF__
+! rm -f nvram.dat
+DO config.ini
+ATT NVR nvram.dat
+DEP BDR 1
+! sleep 1
+EXPECT "Device? [XQA0]: "  SEND "dua0:\r" ;GO
+EXPECT "intr ^C\r\n# "     SEND "newfs ra0g ra82\x3B newfs ra0h ra82\r" ;GO
+EXPECT ",\r\n# "           SEND "mkdir /home\x3B mount /dev/ra0g /usr\r" ;GO
+EXPECT "usr\r\n# "         SEND "cd /dev\x3B MAKEDEV tmscp0\x3B MAKEDEV dz0\r" ;GO
+EXPECT "dz0\r\n# "         SEND "cd /usr\x3B mt rew\x3B mt fsf 3\x3B tar xvpbf 20 /dev/rmt12\r" ;GO
+EXPECT "0b, 5120 bytes, 10 tape blocks\r\n# " SEND "mkdir src\x3B cd src\x3B mkdir sys\x3B cd sys\x3B mt fsf  \x3B tar xvpbf 20 /dev/rmt12\r" ;GO
+EXPECT "link to ../mdec/boot58/bootblk\r\n# " SEND "cd ..\x3B mt fsf  \x3B tar xvpbf 20 /dev/rmt12\r" ;GO
+BOOT CPU
+__EOF__
+
+rm -rf nvram.dat
+simh/BIN/microvax3900 rootdump.ini
+simh/BIN/microvax3900 install.ini
+
+#--------0---------0---------0---------0---------0---------0---------0---------0
+

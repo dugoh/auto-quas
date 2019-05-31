@@ -1,0 +1,11 @@
+Tape 1:
+
+1. stand (290 512 byte records)
+2. miniroot (308 10240 byte records)
+3. rootdump (555 10240 byte records)
+4. usr.tar (2154 10240 byte records)
+
+Tape 2:
+
+5. srcsys.tar.Z (10240 byte records recommended)
+6. src.tar.Z (10240 byte records recommended)

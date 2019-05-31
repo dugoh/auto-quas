@@ -1,0 +1,6 @@
+1. stand (290 512 byte records)
+2. miniroot (308 10240 byte records)
+3. rootdump (555 10240 byte records)
+4. usr.tar (2154 10240 byte records)
+5. srcsys.tar (945 10240 byte records)
+6. src.tar (4264 10240 byte records)
