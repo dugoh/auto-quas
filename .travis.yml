@@ -1,0 +1,6 @@
+os:
+  - linux
+  - osx
+language: c
+dist: trusty
+script: ./script
