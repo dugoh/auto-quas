@@ -6,6 +6,32 @@ dist: trusty
 
 env:
   matrix:
+
+  - SIMH_CHECKOUT=217463c6e2ffe75c4105a8675dc896adbd03419d
+#commit 217463c6e2ffe75c4105a8675dc896adbd03419d
+#Author: Mark Pizzolato <mark@infocomm.com>
+#Date:   Sat Jun 1 02:33:02 2019 -0700
+#
+#    TIMER: Also account for sim> prompt time in catchup time calculations#
+#
+#    As discussed in #705
+#
+  - SIMH_CHECKOUT=fa700d0494841c2d69fc25897b33d7f788f4f1fb
+#commit fa700d0494841c2d69fc25897b33d7f788f4f1fb
+#Author: Mark Pizzolato <mark@infocomm.com>
+#Date:   Fri May 31 22:19:31 2019 -0700
+#
+#    SCP: Fix initialization of sim_time and sim_interval when queue is emptied
+#
+  - SIMH_CHECKOUT=564ce2b3f4b2250477dd6fa6b61bd8681a301cf8
+#commit 564ce2b3f4b2250477dd6fa6b61bd8681a301cf8
+#Author: Mark Pizzolato <mark@infocomm.com>
+#Date:   Thu May 30 03:23:38 2019 -0700
+#
+#    TIMER: Don't consider idle calibration skipping with internal timer
+#
+#    As discussed in #699
+
   - SIMH_CHECKOUT=0195bbda4b552531de527873734fe8b11f50c193
   - SIMH_CHECKOUT=45d8c908ba1f153522d9575e373599f1ff19bae8
   - SIMH_CHECKOUT=6a131ec59af671b6a9e5b3861868afc86a5fb54f
