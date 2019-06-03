@@ -69,7 +69,7 @@ EXPECT "usr\r\n# "         SEND "cd /dev\x3B MAKEDEV tmscp0\x3B MAKEDEV dz0\r" ;
 EXPECT "dz0\r\n# "         SEND "cd /usr\x3B mt rew\x3B mt fsf 3\x3B tar xvpbf 20 /dev/rmt12|sed '$!d'\r" ;GO
 EXPECT "0b, 5120 bytes, 10 tape blocks\r\n# " SEND "mkdir src\x3B cd src\x3B mkdir sys\x3B cd sys\x3B mt fsf  \x3B tar xvpbf 20 /dev/rmt12|tail\r" ;GO
 EXPECT "link to ../mdec/boot58/bootblk\r\n# " SEND "cd ..\x3B mt fsf  \x3B tar xvpbf 20 /dev/rmt12|tail\r" ;GO
-EXPECT "ey.c, 712 bytes, 2 tape blocks\r\n# " SEND "echo \x22/dev/ra0a:/:rw:1:1|/dev/ra0h:/home:rw:1:3|/dev/ra0g:/usr:rw:1:2\x22 |tr '|' '\x5Cn' >/etc/fstab\x3B shutdown -h now\r"; GO
+EXPECT "ey.c, 712 bytes, 2 tape blocks\r\n# " SEND "echo \x22/dev/ra0a:/:rw:1:1|/dev/ra0h:/home:rw:1:3|/dev/ra0g:/usr:rw:1:2\x22 |tr '|' '\x5C012' >/etc/fstab\x3B shutdown -h now\r"; GO
 BOOT CPU
 QUIT
 __EOF__
