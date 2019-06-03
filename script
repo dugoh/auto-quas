@@ -74,6 +74,12 @@ BOOT CPU
 QUIT
 __EOF__
 
+cat >sv.ini<<__EOF__
+SHOW VERSION
+QUIT
+__EOF__
+simh/BIN/microvax3900 sv.ini
+
 for c in 1 2 3 4 5 6 7 8 9 10; do
   echo ++++++++++ run $c ++++++++++
   rm -rf nvram.dat
