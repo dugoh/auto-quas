@@ -6,6 +6,33 @@ dist: trusty
 
 env:
   matrix:
+  - SIMH_CHECKOUT=53ad66f57ebdec051d3345d5957a69707ddc3e32
+#commit 53ad66f57ebdec051d3345d5957a69707ddc3e32
+#Author: Mark Pizzolato <mark@infocomm.com>
+#Date:   Tue Jun 4 00:02:17 2019 -0700
+#
+#    PDP10: Fix rdtim to properly compute the value
+#
+#    The correct solution adds the elapsed interval rather than the remaining
+#    interval value.
+#
+#    As reported in #699
+#
+  - SIMH_CHECKOUT=9514ea5a58d9a417ecac4cd0016a7b1cd614f83d
+#commit 9514ea5a58d9a417ecac4cd0016a7b1cd614f83d
+#Author: Mark Pizzolato <mark@infocomm.com>
+#Date:   Mon Jun 3 20:45:40 2019 -0700
+#
+#    TIMER: Stabilize run away clock calibration conditions
+#
+#    - Adjust calibration parameters to properly record catchup variables for
+#      odd condition cases.
+#    - Disable idle percentage calibration skipping until the correct set of
+#      calibration variables are available.
+#    - When a pre-calibrate operation has been performed, make the results
+#      visible in the output of SHOW CLOCK
+#
+#    As discussed in #705 and #699
 
   - SIMH_CHECKOUT=217463c6e2ffe75c4105a8675dc896adbd03419d
 #commit 217463c6e2ffe75c4105a8675dc896adbd03419d
@@ -39,7 +66,7 @@ env:
   - SIMH_CHECKOUT=48db10994d208e75cc01abde38dbf952a6699307
   - SIMH_CHECKOUT=7c27f77beb923722328094e6d07b1e91b929b9b9
   - SIMH_CHECKOUT=6b3bff56b307380c49427ed845530207992b0047
-  - SIMH_CHECKOUT=4f2dc069aeee0dd3e5013951e6251783e57582c6
+#  - SIMH_CHECKOUT=4f2dc069aeee0dd3e5013951e6251783e57582c6
   - SIMH_CHECKOUT=42271bd410894e49eab6ae657bbbe94d52c10b4f
 #  - SIMH_CHECKOUT=63a39369dc857fdb83ba9c2c2746c8166307fb82
 #  - SIMH_CHECKOUT=650cfd486493a7f7f4d655e375e123704a4e1bee
