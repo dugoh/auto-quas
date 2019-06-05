@@ -1,11 +1,19 @@
-os:
-  - linux
-  - osx
 language: c
-dist: trusty
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+          
+    - os: osx
+    
+    - os: windows
+      
+    - os: linux
+      dist: xenial
 
 env:
-  matrix:
+#  matrix:
   - SIMH_CHECKOUT=53ad66f57ebdec051d3345d5957a69707ddc3e32
 #commit 53ad66f57ebdec051d3345d5957a69707ddc3e32
 #Author: Mark Pizzolato <mark@infocomm.com>
