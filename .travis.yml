@@ -1,7 +1,7 @@
 language: c
 
 matrix:
-include:
+  include:
 
     #### 53ad66f57ebdec051d3345d5957a69707ddc3e32
     - os: osx
