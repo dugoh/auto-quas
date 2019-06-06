@@ -3,16 +3,16 @@ git clone https://github.com/simh/simh.git
 
 cd simh
 git checkout $1
-make vax
+make vax || mingw32-make.exe vax
 cd ..
 
 (
   echo '#include <stdlib.h>'
   tar -xOf compress/compress.tar ucb/compress/gzcompat.c
 )>gzcompat.c
-
+ls -ltr
 gcc -O -o gzcompat gzcompat.c
-
+ls -ltr
 cat 4.3BSD-Quasijarus0c/miniroot.Z   | ./gzcompat | gzip -dc > miniroot
 cat 4.3BSD-Quasijarus0c/rootdump.Z   | ./gzcompat | gzip -dc > rootdump
 cat 4.3BSD-Quasijarus0c/src.tar.Z    | ./gzcompat | gzip -dc > src.tar
