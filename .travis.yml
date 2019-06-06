@@ -1,12 +1,109 @@
-os:
-  - linux
-  - osx
 language: c
-dist: trusty
 
-env:
-  matrix:
-  - SIMH_CHECKOUT=53ad66f57ebdec051d3345d5957a69707ddc3e32
+matrix:
+include:
+
+    #### 53ad66f57ebdec051d3345d5957a69707ddc3e32
+    - os: osx
+      osx_image: xcode9.4
+      env:
+       - SIMH_CHECKOUT=53ad66f57ebdec051d3345d5957a69707ddc3e32
+       - OENV="macOS 10.13 - xcode9.4"
+
+    - os: osx
+      osx_image: xcode10.2
+      env:
+       - SIMH_CHECKOUT=53ad66f57ebdec051d3345d5957a69707ddc3e32
+       - OENV="macOS 10.14 - xcode10.2"
+
+    - os: linux
+      dist: xenial
+      env:
+       - SIMH_CHECKOUT=53ad66f57ebdec051d3345d5957a69707ddc3e32
+       - OENV="Linux xenial"
+
+    - os: linux
+      dist: trusty
+      env:
+       - SIMH_CHECKOUT=53ad66f57ebdec051d3345d5957a69707ddc3e32
+       - OENV="Linux trusty"
+
+    - os: windows
+      env:
+       - SIMH_CHECKOUT=53ad66f57ebdec051d3345d5957a69707ddc3e32
+       - OENV="Windows"
+
+
+
+
+    #### f75f28aa21f9a3013641510641892e48aaa07ee2
+    - os: osx
+      osx_image: xcode9.4
+      env:
+       - SIMH_CHECKOUT=f75f28aa21f9a3013641510641892e48aaa07ee2
+       - OENV="macOS 10.13 - xcode9.4"
+
+    - os: osx
+      osx_image: xcode10.2
+      env:
+       - SIMH_CHECKOUT=f75f28aa21f9a3013641510641892e48aaa07ee2
+       - OENV="macOS 10.14 - xcode10.2"
+
+    - os: linux
+      dist: xenial
+      env:
+       - SIMH_CHECKOUT=f75f28aa21f9a3013641510641892e48aaa07ee2
+       - OENV="Linux xenial"
+
+    - os: linux
+      dist: trusty
+      env:
+       - SIMH_CHECKOUT=f75f28aa21f9a3013641510641892e48aaa07ee2
+       - OENV="Linux trusty"
+
+    - os: windows
+      env:
+       - SIMH_CHECKOUT=f75f28aa21f9a3013641510641892e48aaa07ee2
+       - OENV="Windows"
+
+
+
+
+    #### 48db10994d208e75cc01abde38dbf952a6699307
+    - os: osx
+      osx_image: xcode9.4
+      env:
+       - SIMH_CHECKOUT=48db10994d208e75cc01abde38dbf952a6699307
+       - OENV="macOS 10.13 - xcode9.4"
+
+    - os: osx
+      osx_image: xcode10.2
+      env:
+       - SIMH_CHECKOUT=48db10994d208e75cc01abde38dbf952a6699307
+       - OENV="macOS 10.14 - xcode10.2"
+
+    - os: linux
+      dist: xenial
+      env:
+       - SIMH_CHECKOUT=48db10994d208e75cc01abde38dbf952a6699307
+       - OENV="Linux xenial"
+
+    - os: linux
+      dist: trusty
+      env:
+       - SIMH_CHECKOUT=48db10994d208e75cc01abde38dbf952a6699307
+       - OENV="Linux trusty"
+
+    - os: windows
+      env:
+       - SIMH_CHECKOUT=48db10994d208e75cc01abde38dbf952a6699307
+       - OENV="Windows"
+
+script: ./script "${SIMH_CHECKOUT}"
+
+
+# old  matrix:
+###  - SIMH_CHECKOUT=53ad66f57ebdec051d3345d5957a69707ddc3e32
 #commit 53ad66f57ebdec051d3345d5957a69707ddc3e32
 #Author: Mark Pizzolato <mark@infocomm.com>
 #Date:   Tue Jun 4 00:02:17 2019 -0700
@@ -18,7 +115,7 @@ env:
 #
 #    As reported in #699
 #
-  - SIMH_CHECKOUT=9514ea5a58d9a417ecac4cd0016a7b1cd614f83d
+###  - SIMH_CHECKOUT=9514ea5a58d9a417ecac4cd0016a7b1cd614f83d
 #commit 9514ea5a58d9a417ecac4cd0016a7b1cd614f83d
 #Author: Mark Pizzolato <mark@infocomm.com>
 #Date:   Mon Jun 3 20:45:40 2019 -0700
@@ -34,7 +131,7 @@ env:
 #
 #    As discussed in #705 and #699
 
-  - SIMH_CHECKOUT=217463c6e2ffe75c4105a8675dc896adbd03419d
+###  - SIMH_CHECKOUT=217463c6e2ffe75c4105a8675dc896adbd03419d
 #commit 217463c6e2ffe75c4105a8675dc896adbd03419d
 #Author: Mark Pizzolato <mark@infocomm.com>
 #Date:   Sat Jun 1 02:33:02 2019 -0700
@@ -43,14 +140,14 @@ env:
 #
 #    As discussed in #705
 #
-  - SIMH_CHECKOUT=fa700d0494841c2d69fc25897b33d7f788f4f1fb
+### - SIMH_CHECKOUT=fa700d0494841c2d69fc25897b33d7f788f4f1fb
 #commit fa700d0494841c2d69fc25897b33d7f788f4f1fb
 #Author: Mark Pizzolato <mark@infocomm.com>
 #Date:   Fri May 31 22:19:31 2019 -0700
 #
 #    SCP: Fix initialization of sim_time and sim_interval when queue is emptied
 #
-  - SIMH_CHECKOUT=564ce2b3f4b2250477dd6fa6b61bd8681a301cf8
+###  - SIMH_CHECKOUT=564ce2b3f4b2250477dd6fa6b61bd8681a301cf8
 #commit 564ce2b3f4b2250477dd6fa6b61bd8681a301cf8
 #Author: Mark Pizzolato <mark@infocomm.com>
 #Date:   Thu May 30 03:23:38 2019 -0700
@@ -59,15 +156,15 @@ env:
 #
 #    As discussed in #699
 
-  - SIMH_CHECKOUT=0195bbda4b552531de527873734fe8b11f50c193
-  - SIMH_CHECKOUT=45d8c908ba1f153522d9575e373599f1ff19bae8
-  - SIMH_CHECKOUT=6a131ec59af671b6a9e5b3861868afc86a5fb54f
-  - SIMH_CHECKOUT=f75f28aa21f9a3013641510641892e48aaa07ee2
-  - SIMH_CHECKOUT=48db10994d208e75cc01abde38dbf952a6699307
-  - SIMH_CHECKOUT=7c27f77beb923722328094e6d07b1e91b929b9b9
-  - SIMH_CHECKOUT=6b3bff56b307380c49427ed845530207992b0047
+###  - SIMH_CHECKOUT=0195bbda4b552531de527873734fe8b11f50c193
+###  - SIMH_CHECKOUT=45d8c908ba1f153522d9575e373599f1ff19bae8
+###  - SIMH_CHECKOUT=6a131ec59af671b6a9e5b3861868afc86a5fb54f
+###  - SIMH_CHECKOUT=f75f28aa21f9a3013641510641892e48aaa07ee2
+###  - SIMH_CHECKOUT=48db10994d208e75cc01abde38dbf952a6699307
+###  - SIMH_CHECKOUT=7c27f77beb923722328094e6d07b1e91b929b9b9
+###  - SIMH_CHECKOUT=6b3bff56b307380c49427ed845530207992b0047
 #  - SIMH_CHECKOUT=4f2dc069aeee0dd3e5013951e6251783e57582c6
-  - SIMH_CHECKOUT=42271bd410894e49eab6ae657bbbe94d52c10b4f
+###  - SIMH_CHECKOUT=42271bd410894e49eab6ae657bbbe94d52c10b4f
 #  - SIMH_CHECKOUT=63a39369dc857fdb83ba9c2c2746c8166307fb82
 #  - SIMH_CHECKOUT=650cfd486493a7f7f4d655e375e123704a4e1bee
 #  - SIMH_CHECKOUT=0dff31427f60f6520e80431b8a5709064c2e0f65
@@ -77,7 +174,7 @@ env:
 #  - SIMH_CHECKOUT=db26349bd75f2fe796234a3206505e4a14cc661f
 #  - SIMH_CHECKOUT=c9b0e2b00fb39ef354383c00e2e985583ae0f455
 #  - SIMH_CHECKOUT=bd45a9c45f52bceadd5555b00b552a752fabd056
-  - SIMH_CHECKOUT=f700346ea9bfcfdf4d5a75f312ab6e9928d0c24d
+###  - SIMH_CHECKOUT=f700346ea9bfcfdf4d5a75f312ab6e9928d0c24d
 #  - SIMH_CHECKOUT=94f5034712110574fdc714531c524187a0740753
 #  - SIMH_CHECKOUT=05f84879ad61772e2b725fade3d5743ee9f2f1ef
 #  - SIMH_CHECKOUT=e47a7e9ef716f788f76c4b09524b647b289ca138
@@ -89,7 +186,7 @@ env:
 #  - SIMH_CHECKOUT=81b48e2ebfec83fb0a6daf7fad7a767d57fb1337
 #  - SIMH_CHECKOUT=287655da92789266ccdfea625b508b7d2e84c7d4
 #  - SIMH_CHECKOUT=758bfb7853cccf6ceb904ea44f5b07e71c1c9df1
-  - SIMH_CHECKOUT=ab3e07a401b7c43887b528cc7c29cb0498c790d9
+###  - SIMH_CHECKOUT=ab3e07a401b7c43887b528cc7c29cb0498c790d9
 #  - SIMH_CHECKOUT=d861fa224a4bdde3063bf46a8d091f7a740f1c25
 #  - SIMH_CHECKOUT=52fab988e3997208b2d0ce96d3c657f6cfee337c
 #  - SIMH_CHECKOUT=6c7da6c68b737461c2ecdc91a39cf088f79d30e7
@@ -99,7 +196,7 @@ env:
 #  - SIMH_CHECKOUT=621e97e1708be428c81b32b8aeeef9a1e880c9d2
 #  - SIMH_CHECKOUT=5e540cea988f0ae6b1ca051da1c937dfdd4b5341
 #  - SIMH_CHECKOUT=63d2eccd64f6dd6d830da587ea6fbeb22150d7f7
-  - SIMH_CHECKOUT=0cc6f85937b0a1491f5f30728e5265aded64f16f
+###  - SIMH_CHECKOUT=0cc6f85937b0a1491f5f30728e5265aded64f16f
 #  - SIMH_CHECKOUT=8832511204ff2ab001e85b35fbb90261a0504f33
 #  - SIMH_CHECKOUT=c5e3becc73ae75904a9d0e0e92bb617d893be5e2
 #  - SIMH_CHECKOUT=1d133bfc8ef9c5e3d4c4d5b2734798ea664048e8
@@ -108,7 +205,7 @@ env:
 #  - SIMH_CHECKOUT=7eee73770dbd69dd1c98e89d823df5d45df60b44
 #  - SIMH_CHECKOUT=39ce971e2ee56cf404fd4f425c96b250fa32ac25
 #  - SIMH_CHECKOUT=2ebf9216afb49682ddb6b4fc71230b3cd20c917e
-# old
+# old commits
 #  - SIMH_CHECKOUT=b1766b6dcfd858baec538e4fbe91dd1d7a551ba1
 #  - SIMH_CHECKOUT=0ef5776e52a45a61da80219d73e7e4e4afb3c619
 #  - SIMH_CHECKOUT=82ea9c59ca1569b80083fceb7977d03515890b68
@@ -116,6 +213,3 @@ env:
 #  - SIMH_CHECKOUT=4da04e06ce329648578b31f8197ef305eb188eef
 #  - SIMH_CHECKOUT=2498fafd4681179e031c25ed11e9c6ad00adafcd
 #  - SIMH_CHECKOUT=d4cb5e8aed0bedbd4c0c83006d0d384a67a9b761
-
-
-script: ./script "${SIMH_CHECKOUT}"
