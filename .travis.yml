@@ -99,7 +99,8 @@ include:
        - SIMH_CHECKOUT=48db10994d208e75cc01abde38dbf952a6699307
        - OENV="Windows"
 
-script: ./script "${SIMH_CHECKOUT}"
+script: 
+   - ./script "${SIMH_CHECKOUT}"
 
 
 # old  matrix:
