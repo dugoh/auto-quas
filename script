@@ -41,7 +41,6 @@ __EOF__
 
 cat >rootdump.ini <<__EOF__
 DO config.ini
-SET CLOCK NOCATCHUP
 EXPECT ">>>"               SEND "boot mua0:\r"                          ;GO
 EXPECT "\r\n\n="           SEND "copy\r"                                ;GO
 EXPECT "From: "            SEND "tms(0,1)\r"                            ;GO
