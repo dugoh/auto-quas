@@ -59,7 +59,6 @@ __EOF__
 
 cat >install.ini <<"__EOF__"
 ! rm -f nvram.dat
-SET CLOCK NOCATCHUP
 DO config.ini
 ATT NVR nvram.dat
 DEP BDR 1
