@@ -3,34 +3,34 @@ language: c
 matrix:
   include:
 
-    #### fa700d0494841c2d69fc25897b33d7f788f4f1fb
+    #### 2f707ffc6e51caca584226880b3f1c66f1de4a85
     - os: osx
       osx_image: xcode9.4
       env:
-       - SIMH_CHECKOUT=fa700d0494841c2d69fc25897b33d7f788f4f1fb
+       - SIMH_CHECKOUT=2f707ffc6e51caca584226880b3f1c66f1de4a85
        - OENV="macOS 10.13 - xcode9.4"
 
     - os: osx
       osx_image: xcode10.2
       env:
-       - SIMH_CHECKOUT=fa700d0494841c2d69fc25897b33d7f788f4f1fb
+       - SIMH_CHECKOUT=2f707ffc6e51caca584226880b3f1c66f1de4a85
        - OENV="macOS 10.14 - xcode10.2"
 
     - os: linux
       dist: xenial
       env:
-       - SIMH_CHECKOUT=fa700d0494841c2d69fc25897b33d7f788f4f1fb
+       - SIMH_CHECKOUT=2f707ffc6e51caca584226880b3f1c66f1de4a85
        - OENV="Linux xenial"
 
     - os: linux
       dist: trusty
       env:
-       - SIMH_CHECKOUT=fa700d0494841c2d69fc25897b33d7f788f4f1fb
+       - SIMH_CHECKOUT=2f707ffc6e51caca584226880b3f1c66f1de4a85
        - OENV="Linux trusty"
 
 #    - os: windows
 #      env:
-#       - SIMH_CHECKOUT=fa700d0494841c2d69fc25897b33d7f788f4f1fb
+#       - SIMH_CHECKOUT=2f707ffc6e51caca584226880b3f1c66f1de4a85
 #       - OENV="Windows"
 
 
