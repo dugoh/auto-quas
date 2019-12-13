@@ -23,6 +23,7 @@ cat 4.3BSD-Quasijarus0c/usr.tar.Z    | ./gzcompat | gzip -dc > usr.tar
 mkdisttap/mkdisttap.pl > quas.tap
 
 cat >config.ini <<__EOF__
+SET CPU 64M
 SET CPU IDLE=QUASIJARUS
 set cr  dis
 set lpt dis
