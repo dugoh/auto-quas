@@ -23,6 +23,7 @@ cat 4.3BSD-Quasijarus0c/usr.tar.Z    | ./gzcompat | gzip -dc > usr.tar
 mkdisttap/mkdisttap.pl > quas.tap
 
 cat >config.ini <<__EOF__
+SET ROM DELAY
 SET CPU 64M
 SET CPU IDLE=QUASIJARUS
 set cr  dis
@@ -63,7 +64,6 @@ cat >install.ini <<"__EOF__"
 DO config.ini
 ATT NVR nvram.dat
 DEP BDR 1
-SET ROM DELAY
 EXPECT "Device? [XQA0]: "  SEND "dua0:\r" ;GO
 EXPECT "intr ^C\r\n# "     SEND "newfs ra0g ra82\x3B newfs ra0h ra82\r" ;GO
 EXPECT ",\r\n# "           SEND "mkdir /home\x3B mount /dev/ra0g /usr\r" ;GO
