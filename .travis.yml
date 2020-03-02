@@ -7,25 +7,25 @@ matrix:
     - os: osx
       osx_image: xcode9.4
       env:
-       - SIMH_CHECKOUT=d03487d2277df1fcefffd600e5ae17f1dee653a3
+       - SIMH_CHECKOUT=7757ecada39724469cfc828491d25d449557244f
        - OENV="macOS 10.13 - xcode9.4"
 
     - os: osx
       osx_image: xcode10.2
       env:
-       - SIMH_CHECKOUT=d03487d2277df1fcefffd600e5ae17f1dee653a3
+       - SIMH_CHECKOUT=7757ecada39724469cfc828491d25d449557244f
        - OENV="macOS 10.14 - xcode10.2"
 
     - os: linux
       dist: xenial
       env:
-       - SIMH_CHECKOUT=d03487d2277df1fcefffd600e5ae17f1dee653a3
+       - SIMH_CHECKOUT=7757ecada39724469cfc828491d25d449557244f
        - OENV="Linux xenial"
 
     - os: linux
       dist: trusty
       env:
-       - SIMH_CHECKOUT=d03487d2277df1fcefffd600e5ae17f1dee653a3
+       - SIMH_CHECKOUT=7757ecada39724469cfc828491d25d449557244f
        - OENV="Linux trusty"
 
 #    - os: windows
