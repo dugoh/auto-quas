@@ -3,32 +3,32 @@ language: c
 matrix:
   include:
 
-    #### 2f707ffc6e51caca584226880b3f1c66f1de4a85
+    #### prev 7757ecada39724469cfc828491d25d449557244f 
     - os: osx
       osx_image: xcode9.4
       env:
-       - SIMH_CHECKOUT=7757ecada39724469cfc828491d25d449557244f
+       - SIMH_CHECKOUT=1c589030ae29107df9e51a699cfe419eed5eaf1d
        - OENV="macOS 10.13 - xcode9.4"
 
     - os: osx
       osx_image: xcode10.2
       env:
-       - SIMH_CHECKOUT=7757ecada39724469cfc828491d25d449557244f
+       - SIMH_CHECKOUT=1c589030ae29107df9e51a699cfe419eed5eaf1d
        - OENV="macOS 10.14 - xcode10.2"
 
     - os: linux
       dist: xenial
       env:
-       - SIMH_CHECKOUT=7757ecada39724469cfc828491d25d449557244f
+       - SIMH_CHECKOUT=1c589030ae29107df9e51a699cfe419eed5eaf1d
        - OENV="Linux xenial"
 
     - os: linux
       dist: trusty
       env:
-       - SIMH_CHECKOUT=7757ecada39724469cfc828491d25d449557244f
+       - SIMH_CHECKOUT=1c589030ae29107df9e51a699cfe419eed5eaf1d
        - OENV="Linux trusty"
 
-#    - os: windows
+#    - os: windows ??
 #      env:
 #       - SIMH_CHECKOUT=2f707ffc6e51caca584226880b3f1c66f1de4a85
 #       - OENV="Windows"
