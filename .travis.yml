@@ -23,6 +23,42 @@ matrix:
        - OENV="Linux xenial"
 
     - os: linux
+      dist: xenial
+      env:
+       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
+       - OENV="Linux xenial"
+
+    - os: linux
+      dist: xenial
+      env:
+       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
+       - OENV="Linux xenial"
+
+    - os: linux
+      dist: xenial
+      env:
+       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
+       - OENV="Linux xenial"
+
+    - os: linux
+      dist: xenial
+      env:
+       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
+       - OENV="Linux xenial"
+
+    - os: linux
+      dist: xenial
+      env:
+       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
+       - OENV="Linux xenial"
+
+    - os: linux
+      dist: xenial
+      env:
+       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
+       - OENV="Linux xenial"
+
+    - os: linux
       dist: trusty
       env:
        - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
