@@ -23,55 +23,12 @@ matrix:
        - OENV="Linux xenial1"
 
     - os: linux
-      dist: xenial
-      env:
-       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
-       - OENV="Linux xenial2"
-
-    - os: linux
-      dist: xenial
-      env:
-       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
-       - OENV="Linux xenial3"
-
-    - os: linux
-      dist: xenial
-      env:
-       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
-       - OENV="Linux xenial4"
-
-    - os: linux
-      dist: xenial
-      env:
-       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
-       - OENV="Linux xenial5"
-
-    - os: linux
-      dist: xenial
-      env:
-       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
-       - OENV="Linux xenial"
-
-    - os: linux
-      dist: xenial
-      env:
-       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
-       - OENV="Linux xenial6"
-
-    - os: linux
       dist: trusty
       env:
        - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
        - OENV="Linux trusty"
 
-#    - os: windows ??
-#      env:
-#       - SIMH_CHECKOUT=f9883668f1fdd724cb9930d113cac1e53774acd5
-#       - OENV="Windows"
-
-
-
-
+#    - os: windows # via AppVeyor
 
 script: 
    - ./script "${SIMH_CHECKOUT}"
