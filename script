@@ -1,28 +1,33 @@
 #!/bin/bash
-echo starting at $(date)
-git clone https://github.com/simh/simh.git
 
+buildsimh() {
+git clone https://github.com/simh/simh.git
 cd simh
 git checkout $1
-make vax || mingw32-make.exe vax
+make vax
 cd ..
+}
 
+buildgzcompat() {
 (
   echo '#include <stdlib.h>'
   tar -xOf compress/compress.tar ucb/compress/gzcompat.c
 )>gzcompat.c
-ls -ltr
+
 gcc -O -o gzcompat gzcompat.c
-ls -ltr
+)
+
+maketap() {
 cat 4.3BSD-Quasijarus0c/miniroot.Z   | ./gzcompat | gzip -dc > miniroot
 cat 4.3BSD-Quasijarus0c/rootdump.Z   | ./gzcompat | gzip -dc > rootdump
 cat 4.3BSD-Quasijarus0c/src.tar.Z    | ./gzcompat | gzip -dc > src.tar
 cat 4.3BSD-Quasijarus0c/srcsys.tar.Z | ./gzcompat | gzip -dc > srcsys.tar
 cat 4.3BSD-Quasijarus0c/stand.Z      | ./gzcompat | gzip -dc > stand
 cat 4.3BSD-Quasijarus0c/usr.tar.Z    | ./gzcompat | gzip -dc > usr.tar
-
 mkdisttap/mkdisttap.pl > quas.tap
+}
 
+writeinis() {
 cat >config.ini <<__EOF__
 SET CPU 64M
 SET CPU IDLE=QUASIJARUS
@@ -80,8 +85,11 @@ cat >sv.ini<<__EOF__
 SHOW VERSION
 QUIT
 __EOF__
-simh/BIN/microvax3900 sv.ini
 
+}
+
+runit() {
+simh/BIN/microvax3900 sv.ini
 for c in 1 2 3 4 5 6 7 8; do
   echo ++++++++++ run $c $(date) ++++++++++
   rm -rf nvram.dat
@@ -91,3 +99,15 @@ for c in 1 2 3 4 5 6 7 8; do
   echo ++++++++++++++++++++++++++++++++++++
   echo
 done
+}
+
+main() {
+buildsimh $1
+buildgzcompat
+maketap
+writeinis
+runit
+}
+
+((${#}-2))&&$1
+((${#}))||main $2
