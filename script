@@ -15,7 +15,7 @@ buildgzcompat() {
 )>gzcompat.c
 
 gcc -O -o gzcompat gzcompat.c
-)
+}
 
 maketap() {
 cat 4.3BSD-Quasijarus0c/miniroot.Z   | ./gzcompat | gzip -dc > miniroot
