@@ -1,5 +1,9 @@
 git clone https://github.com/simh/simh.git
 cd simh
+pwd
+echo bashmaybe $SHELL
+REM comment
+dir /s /b
 build_vstudio.bat BuildROMs VAX|more
 echo
 echo ++++++++++ done1
@@ -13,6 +17,8 @@ cd ..
 copy C:\projects\hello\simh\BIN\NT\Win32-Release\MicroVAX3900.exe .\
 echo sh ver| microvax3900
 echo ++++++++++ done4
+DIR C:\
+echo %PATH%
 SET OPATH=%PATH%
 SET PATH=c:\MinGW\bin;c:\MinGW\usr\bin;%OPATH%
 DIR C:\
