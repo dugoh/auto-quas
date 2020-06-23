@@ -1,0 +1,9 @@
+platform:
+  - x86
+cache:
+  - ../windows-build
+skip_commits:
+  files:
+    - .travis.yml
+build_script:
+  cmd: script.cmd
