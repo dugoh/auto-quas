@@ -13,8 +13,8 @@ REM echo ++++++++++ done2
 REM type c:\projects\hello\simh\BIN\NT\Project\simh\BuildROMs\Win32-Release\BuildLog.htm
 REM echo -
 REM echo ++++++++++ done3
-REM cd ..
-REM copy C:\projects\hello\simh\BIN\NT\Win32-Release\MicroVAX3900.exe .\
+cd ..
+copy C:\projects\auto-qus\simh\BIN\NT\Win32-Release\MicroVAX3900.exe .\
 REM echo sh ver| microvax3900
 REM echo ++++++++++ done4
 REM DIR C:\
@@ -24,6 +24,12 @@ SET OPATH=%PATH%
 SET PATH=c:\MinGW\bin;c:\MinGW\usr\bin;%OPATH%
 echo %PATH%
 gcc -v
+
+bash -c ./script buildgzcompat
+bash -c ./script maketap
+bash -c ./script writeinis
+bash -c ./script runit
+
 REM DIR C:\
 REM echo %PATH%
 REM gcc -o hello.exe hello.c
