@@ -1,11 +1,10 @@
-DIR C:\
-REM git clone https://github.com/simh/simh.git
-REM cd simh
-REM pwd
+REM DIR C:\
+git clone https://github.com/simh/simh.git
+cd simh
 REM echo bashmaybe $SHELL
 REM REM comment
 REM dir /s /b
-REM build_vstudio.bat BuildROMs VAX|more
+build_vstudio.bat BuildROMs VAX|more
 REM echo
 REM echo ++++++++++ done1
 REM type c:\projects\hello\simh\BIN\NT\Project\simh\VAX\Win32-Release\BuildLog.htm
@@ -19,10 +18,12 @@ REM copy C:\projects\hello\simh\BIN\NT\Win32-Release\MicroVAX3900.exe .\
 REM echo sh ver| microvax3900
 REM echo ++++++++++ done4
 REM DIR C:\
+GCC -V
 echo %PATH%
 SET OPATH=%PATH%
 SET PATH=c:\MinGW\bin;c:\MinGW\usr\bin;%OPATH%
 echo %PATH%
+gcc -v
 REM DIR C:\
 REM echo %PATH%
 REM gcc -o hello.exe hello.c
