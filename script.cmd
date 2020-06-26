@@ -15,18 +15,20 @@ REM echo -
 REM echo ++++++++++ done3
 cd ..
 DIR /S /B MicroVAX3900.exe 
-copy C:\projects\auto-qus\simh\BIN\NT\Win32-Release\MicroVAX3900.exe .\
+copy C:\projects\auto-quas\simh\BIN\NT\Win32-Release\MicroVAX3900.exe C:\projects\auto-quas\simh\BIN
+
 REM echo sh ver| microvax3900
 REM echo ++++++++++ done4
 REM DIR C:\
 gcc -v
 echo %PATH%
 SET OPATH=%PATH%
-SET PATH=c:\MinGW\bin;c:\MinGW\usr\bin;%OPATH%
+SET PATH=c:\MinGW\bin;c:\MinGW\usr\bin;.;%OPATH%
 echo %PATH%
 gcc -v
 
 bash -c ./script buildgzcompat
+dir gz*
 bash -c ./script maketap
 bash -c ./script writeinis
 bash -c ./script runit
