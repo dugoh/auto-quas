@@ -18,7 +18,7 @@ REM copy C:\projects\hello\simh\BIN\NT\Win32-Release\MicroVAX3900.exe .\
 REM echo sh ver| microvax3900
 REM echo ++++++++++ done4
 REM DIR C:\
-GCC -V
+gcc -v
 echo %PATH%
 SET OPATH=%PATH%
 SET PATH=c:\MinGW\bin;c:\MinGW\usr\bin;%OPATH%
