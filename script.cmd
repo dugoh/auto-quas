@@ -27,11 +27,11 @@ SET PATH=c:\MinGW\bin;c:\MinGW\usr\bin;.;%OPATH%
 echo %PATH%
 gcc -v
 
-bash -c ./script buildgzcompat
+bash -c './script buildgzcompat'
 dir gz*
-bash -c ./script maketap
-bash -c ./script writeinis
-bash -c ./script runit
+bash -c './script maketap'
+bash -c './script writeinis'
+bash -c './script runit'
 
 REM DIR C:\
 REM echo %PATH%
