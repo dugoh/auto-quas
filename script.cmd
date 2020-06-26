@@ -14,6 +14,7 @@ REM type c:\projects\hello\simh\BIN\NT\Project\simh\BuildROMs\Win32-Release\Buil
 REM echo -
 REM echo ++++++++++ done3
 cd ..
+DIR /S /B MicroVAX3900.exe 
 copy C:\projects\auto-qus\simh\BIN\NT\Win32-Release\MicroVAX3900.exe .\
 REM echo sh ver| microvax3900
 REM echo ++++++++++ done4
