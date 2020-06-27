@@ -67,6 +67,7 @@ set rq3 dis
 att tq0 quas.tap
 set tti 7b
 set tto 7b
+set runlimit 2 minutes
 __EOF__
 
 cat >rootdump.ini <<__EOF__
