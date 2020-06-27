@@ -1,4 +1,5 @@
 git clone https://github.com/simh/simh.git
+git checkout %1
 CD simh
 build_vstudio.bat BuildROMs VAX|more
 CD ..
