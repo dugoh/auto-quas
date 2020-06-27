@@ -47,7 +47,7 @@ cat 4.3BSD-Quasijarus0c/srcsys.tar.Z | ./gzcompat | gzip -dc > srcsys.tar
 cat 4.3BSD-Quasijarus0c/stand.Z      | ./gzcompat | gzip -dc > stand
 cat 4.3BSD-Quasijarus0c/usr.tar.Z    | ./gzcompat | gzip -dc > usr.tar
 perl mkdisttap/mkdisttap.pl > quas.tap
-cksum quas.tap
+cksum miniroot rootdump src.tar srcsys.tar stand usr.tar quas.tap
 }
 
 writeinis() {
