@@ -31,7 +31,7 @@ bash -c './script buildgzcompat'
 dir gz*
 bash -c './script maketap'
 
-TYPE 4.3BSD-Quasijarus0c\miniroot.Z   | ./gzcompat.exe >b
+TYPE 4.3BSD-Quasijarus0c\miniroot.Z   | gzcompat.exe >b
 DIR B
 
 bash -c './script writeinis'
