@@ -68,6 +68,9 @@ att tq0 quas.tap
 set tti 7b
 set tto 7b
 set runlimit 2 minutes
+set console telnet=65432
+SET CONSOLE TELNET=LOG=log_file
+set console telnet=buffered=1000000
 __EOF__
 
 cat >rootdump.ini <<__EOF__
@@ -119,8 +122,8 @@ for c in 1 2 3 4 5 6 7 8; do
   echo ++++++++++ run $c $(date) ++++++++++
   rm -rf nvram.dat
   dd if=/dev/zero of=quas.dsk bs=512 count=1216665
-  simh/BIN/microvax3900 rootdump.ini |od -c
-  simh/BIN/microvax3900 install.ini  |od -c
+  simh/BIN/microvax3900 rootdump.ini; cat log_file; rm log_file
+  simh/BIN/microvax3900 install.ini; cat log_file; rm log_file
   echo ++++++++++++++++++++++++++++++++++++
   echo
 done
