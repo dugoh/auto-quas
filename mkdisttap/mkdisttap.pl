@@ -1,5 +1,6 @@
 #!/usr/bin/env perl
 use strict;
+binmode STDOUT;
 
 # Based on mkdisttap.pl
 # ftp://ftp.mrynet.com/pub/os/PUPS/PDP-11/Boot_Images/2.11_on_Simh/211bsd/mkdisttap.pl
