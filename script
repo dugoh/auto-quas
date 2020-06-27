@@ -106,6 +106,7 @@ __EOF__
 
 cat >sv.ini<<__EOF__
 SHOW VERSION
+SHOW CONSOLE
 QUIT
 __EOF__
 
