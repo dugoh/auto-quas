@@ -36,6 +36,7 @@ sub add_file {
   my($block, $bytes_read, $length);
 
   open(FILE, $filename) || die("Can't open $filename: $!");
+  binmode FILE;
   while($bytes_read = read(FILE, $block, $blocksize)) {
     if($bytes_read < $blocksize) {
       $block .= "\x00" x ($blocksize - $bytes_read);
