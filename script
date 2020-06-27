@@ -24,7 +24,8 @@ echo miniroot
 cat 4.3BSD-Quasijarus0c/miniroot.Z   | ./gzcompat >a
 ls -l a 
 file a
-
+od -c a
+od -tx1 a
 cat 4.3BSD-Quasijarus0c/rootdump.Z   | ./gzcompat | gzip -dc > rootdump
 cat 4.3BSD-Quasijarus0c/src.tar.Z    | ./gzcompat | gzip -dc > src.tar
 cat 4.3BSD-Quasijarus0c/srcsys.tar.Z | ./gzcompat | gzip -dc > srcsys.tar
