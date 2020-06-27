@@ -27,7 +27,7 @@ SET PATH=c:\MinGW\bin;c:\MinGW\usr\bin;.;%OPATH%
 echo %PATH%
 gcc -v
 
-bash -c './script buildgzcompat'
+bash -c './script buildgzcompatwin'
 dir gz*
 bash -c './script maketap'
 
