@@ -17,6 +17,28 @@ buildgzcompat() {
 gcc -O -o gzcompat gzcompat.c
 }
 
+buildgzcompatwin() {
+tar -xOf compress/compress.tar ucb/compress/gzcompat.c >gzcompat.c
+patch gzcompat.c <<__EOF__
+7a8,12
+> #include <stdlib.h>
+> #ifdef _WIN32
+>   #include <io.h>
+>   #include <fcntl.h>
+> #endif
+31a37
+>         int argc;
+39c45,48
+<
+---
+> #ifdef _WIN32
+>         setmode(fileno(stdout),O_BINARY);
+>         setmode(fileno(stdin),O_BINARY);
+> #endif
+__EOF__
+gcc -O -o gzcompat gzcompat.c
+}
+
 maketap() {
 cat 4.3BSD-Quasijarus0c/miniroot.Z   | ./gzcompat | gzip -dc > miniroot
 
