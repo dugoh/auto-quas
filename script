@@ -29,7 +29,7 @@ patch gzcompat.c <<__EOF__
 31a37
 >         int argc;
 39c45,48
-<
+<$(printf ' ')
 ---
 > #ifdef _WIN32
 >         setmode(fileno(stdout),O_BINARY);
