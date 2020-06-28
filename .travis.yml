@@ -2,30 +2,29 @@ language: c
 
 matrix:
   include:
-
-    #### prev 0b3e415b8ef97a64f2599a1d8ae811d760991db2 
+    #### prev 550993a757e19369050165c20b05ff46dcd5c7bd 
     - os: osx
       osx_image: xcode9.4
       env:
-       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
+       - SIMH_CHECKOUT=9711fc017be7614a96ebe3759d779ab7de59bb96
        - OENV="macOS 10.13 - xcode9.4"
 
     - os: osx
       osx_image: xcode10.2
       env:
-       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
+       - SIMH_CHECKOUT=9711fc017be7614a96ebe3759d779ab7de59bb96
        - OENV="macOS 10.14 - xcode10.2"
 
     - os: linux
       dist: xenial
       env:
-       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
+       - SIMH_CHECKOUT=9711fc017be7614a96ebe3759d779ab7de59bb96
        - OENV="Linux xenial1"
 
     - os: linux
       dist: trusty
       env:
-       - SIMH_CHECKOUT=550993a757e19369050165c20b05ff46dcd5c7bd
+       - SIMH_CHECKOUT=9711fc017be7614a96ebe3759d779ab7de59bb96
        - OENV="Linux trusty"
 
 #    - os: windows # via AppVeyor
