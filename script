@@ -128,10 +128,9 @@ for c in 1 2 3 4 5 6 7 8; do
   cat log_file |tee -a all_log_file
   rm log_file
   echo ++++++++++++++++++++++++++++++++++++
-  echo
+  printf "NOK: "; grep -ac "Normal operation not possible." all_log_file
+  printf "OK: "; grep -ac "System shutdown time has arrived" all_log_file
 done
-printf "NOK: "; grep -ac "Normal operation not possible." all_log_file
-printf "OK: "; grep -ac "System shutdown time has arrived" all_log_file
 }
 
 main() {
