@@ -7,7 +7,6 @@ jobs:
       SIMH_CHECKOUT: "9711fc017be7614a96ebe3759d779ab7de59bb96"
     steps:
       - checkout
-      - run: sh -ex build/dependencies.sh install_linux
       - run:
           name: build
           command: ./script try "${SIMH_CHECKOUT}"
