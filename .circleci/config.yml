@@ -2,11 +2,12 @@ version: 2.0
 jobs:
   build_1:
     docker:
-      - image: debian
+      - image: "debian:stretch"
     environment:
       SIMH_CHECKOUT: "9711fc017be7614a96ebe3759d779ab7de59bb96"
     steps:
       - checkout
+      - run:  sudo apt-get install -my git make gcc libncurses-dev autoconf
       - run:
           name: build
           command: ./script try "${SIMH_CHECKOUT}"
@@ -16,11 +17,12 @@ jobs:
           path: out
   build_2:
     docker:
-      - image: debian-jessie
+      - image: "debian:jessie"
     environment:
       SIMH_CHECKOUT: "9711fc017be7614a96ebe3759d779ab7de59bb96"
     steps:
       - checkout
+      - run:  sudo apt-get install -my git make gcc libncurses-dev autoconf
       - run:
           name: build
           command: ./script try "${SIMH_CHECKOUT}"
