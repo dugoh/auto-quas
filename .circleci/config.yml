@@ -1,6 +1,6 @@
 version: 2.0
 jobs:
-  build_1:
+  build-stretch:
     docker:
       - image: "debian:stretch"
     environment:
@@ -15,7 +15,7 @@ jobs:
           timeout: 62m
       - store_artifacts:
           path: out
-  build_2:
+  build-jessie:
     docker:
       - image: "debian:jessie"
     environment:
