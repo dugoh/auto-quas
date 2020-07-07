@@ -5,9 +5,4 @@ task:
     image: freebsd-12-1-release-amd64
   install_script: pkg upgrade -y && pkg install -y gmake git sdl2 sdl2_image pkgconf bash
   script: 
-          - pwd
-          - ls -l
-          - which bash 
-          - which ksh
-          - which sh
-          - bash -c ./script try "${SIMH_CHECKOUT}"
+          - /usr/local/bin/bash -c ./script try "${SIMH_CHECKOUT}"
