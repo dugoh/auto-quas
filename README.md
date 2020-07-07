@@ -4,16 +4,18 @@ Currently simh testing for a specific [issue](https://github.com/simh/simh/issue
 
 It runs the install 8 times to gather stats on how often it fails.
 
-It uses
 
-- circle-ci
+This repo is edited in the github UI with reckless abandon and utter disregard for a sensible commit history. 
+At the moment the badges don't mean much, they are just a quick link to the build log.
+
+- circle-ci [![dugoh](https://circleci.com/gh/dugoh/auto-quas.svg?style=svg)](<LINK>)
   - Debian 
     - stretch
     - jessie
-- appveyor 
+- appveyor [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/dugoh/auto-quas)](https://ci.appveyor.com/project/dugoh/auto-quas/history)
   - Windows
     - visual studio 2019
-- travis-ci
+- travis-ci [![Build Status](https://travis-ci.org/dugoh/auto-quas.svg)](https://travis-ci.org/dugoh/auto-quas)
   - Mac
     - MacOS10.13-xcode9.4
     - macOS10.14-xcode10.2
@@ -22,7 +24,7 @@ It uses
     - Xenial
     - Trusty
     - Bionic
-- cirrus-ci
+- cirrus-ci [![Build Status](https://api.cirrus-ci.com/github/dugoh/auto-quas.svg)](https://cirrus-ci.com/github/dugoh/auto-quas)
   - FreeBSD
     - 12.1-release-amd64
 
