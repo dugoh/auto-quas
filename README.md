@@ -5,9 +5,9 @@ Currently simh testing for a specific [issue](https://github.com/simh/simh/issue
 It runs the install 8 times to gather stats on how often it fails.
 
 It uses
-- circle-ci for Debian stretch and Jessie
-- appveyor for windows
-- travis-ci for mac and ubuntu
+- circle-ci for Debian stretch and jessie
+- appveyor for windows visual studio 2019
+- travis-ci for mac 10.13-xcode9.4/macOS, 10.14/xcode10.2 and ubuntu Xenial, Trusty and Bionic
 
 The issue doesn't always show up and is hard to track.
 Currently[1] Ubuntu Xenial suffers the most and mac works fine.
