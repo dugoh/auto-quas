@@ -6,4 +6,6 @@ task:
   install_script: pkg install -y gmake git sdl2 sdl2_image pkgconf bash
   script: 
           - ln -s /usr/local/bin/bash /bin/bash
+          - bash -c ls -l /bin/bash
+          - bash -c cat /etc/shells
           - bash -c ./script try "${SIMH_CHECKOUT}"
