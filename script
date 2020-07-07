@@ -14,7 +14,7 @@ buildgzcompat() {
   tar -xOf compress/compress.tar ucb/compress/gzcompat.c
 )>gzcompat.c
 
-gcc -O -o gzcompat gzcompat.c
+gcc -O -o gzcompat gzcompat.c || cc -O -o gzcompat gzcompat.c
 }
 
 buildgzcompatwin() {
