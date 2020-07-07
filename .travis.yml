@@ -14,6 +14,12 @@ matrix:
       env:
        - SIMH_CHECKOUT=9711fc017be7614a96ebe3759d779ab7de59bb96
        - OENV="macOS 10.14 - xcode10.2"
+       
+     - os: osx
+      osx_image: xcode12
+      env:
+       - SIMH_CHECKOUT=9711fc017be7614a96ebe3759d779ab7de59bb96
+       - OENV="macOS 10.15.5 - xcode12.0"
 
     - os: linux
       dist: xenial
