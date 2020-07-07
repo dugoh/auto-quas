@@ -6,6 +6,9 @@ cd simh
 git checkout $1
 MAKE=make
 uname -a|grep -q freebsd && MAKE=gmake
+uname -a
+echo ${MAKE}
+WHICH ${MAKE}
 ${MAKE} vax
 cd ..
 }
@@ -113,6 +116,7 @@ __EOF__
 cat >sv.ini<<__EOF__
 SHOW VERSION
 SHOW CONSOLE
+SHOW DEV
 QUIT
 __EOF__
 
