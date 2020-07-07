@@ -8,6 +8,6 @@ task:
           - echo xxx
           - ln -s /usr/local/bin/bash /bin/bash
           - echo m00
-          - bash -c ls -l /bin/bash
-          - #bash -c cat /etc/shells
-          - #bash -c ./script try "${SIMH_CHECKOUT}"
+          - bash -c 'ls -l /bin/bash'
+          - bash -c 'cat /etc/shells'
+          - bash -c "./script try ${SIMH_CHECKOUT}"
