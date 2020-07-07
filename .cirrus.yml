@@ -3,7 +3,7 @@ env:
 task:
   freebsd_instance:
     image: freebsd-12-1-release-amd64
-  install_script: pkg upgrade -y && pkg install -y gmake git sdl2 sdl2_image pkgconf bash
+  install_script: pkg install -y gmake git sdl2 sdl2_image pkgconf bash
   script: 
           - ln -s /usr/local/bin/bash /bin/bash
           - bash -c ./script try "${SIMH_CHECKOUT}"
