@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:  apt-get update -myq && apt-get install -my git make gcc libncurses-dev autoconf libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev
       - run:
-          name: build
+          name: build-stretch
           command: ./script try "${SIMH_CHECKOUT}"
           no_output_timeout: 10m
           timeout: 62m
@@ -24,7 +24,7 @@ jobs:
       - checkout
       - run:  apt-get update -myq && apt-get install -my git make gcc libncurses-dev autoconf libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev
       - run:
-          name: build
+          name: build-jessie
           command: ./script try "${SIMH_CHECKOUT}"
           no_output_timeout: 10m
           timeout: 62m
@@ -34,5 +34,5 @@ workflows:
   version: 2
   build:
     jobs:
-      - build_1
-      - build_2
+      - build-stretch
+      - build-jessie
