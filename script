@@ -135,12 +135,15 @@ done
 }
 
 main() {
+echo main
 buildsimh $1
 buildgzcompat
 maketap
 writeinis
 runit
 }
+
+echo starting
 
 ((${#}-2))&&$1
 ((${#}-1))&&main $2
