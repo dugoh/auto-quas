@@ -4,7 +4,9 @@ buildsimh() {
 git clone https://github.com/simh/simh.git
 cd simh
 git checkout $1
-make vax
+MAKE=make
+uname -a|grep -q freebsd && MAKE=gmake
+${MAKE} vax
 cd ..
 }
 
