@@ -27,8 +27,12 @@ matrix:
        - SIMH_CHECKOUT=9711fc017be7614a96ebe3759d779ab7de59bb96
        - OENV="Linux trusty"
 
-#    - os: windows # via AppVeyor
-
+    - os: linux
+      dist: bionic
+      env:
+       - SIMH_CHECKOUT=9711fc017be7614a96ebe3759d779ab7de59bb96
+       - OENV="Linux bionic"
+       
 script: 
    - ./script try "${SIMH_CHECKOUT}"
 
