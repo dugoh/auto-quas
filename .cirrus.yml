@@ -1,13 +1,9 @@
 env:
-  SIMH_CHECKOUT: "9711fc017be7614a96ebe3759d779ab7de59bb96"
+  SIMH_CHECKOUT: "166852935d9abba4f06e85cdacd97a51027c0877"
 task:
   freebsd_instance:
     image: freebsd-12-1-release-amd64
   install_script: pkg install -y gmake git sdl2 sdl2_image pkgconf bash
   script: 
-          - echo xxx
           - ln -s /usr/local/bin/bash /bin/bash
-          - echo m00
-          - bash -c 'ls -l /bin/bash'
-          - bash -c 'cat /etc/shells'
           - bash -c "./script try ${SIMH_CHECKOUT}"
