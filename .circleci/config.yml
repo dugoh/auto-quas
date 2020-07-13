@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: "debian:stretch"
     environment:
-      SIMH_CHECKOUT: "9711fc017be7614a96ebe3759d779ab7de59bb96"
+      SIMH_CHECKOUT: "331f6897470d9a53508ad42db2d27f76ec6ddf4d"
     steps:
       - checkout
       - run:  apt-get update -myq && apt-get install -my git make gcc libncurses-dev autoconf libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev
@@ -19,7 +19,7 @@ jobs:
     docker:
       - image: "debian:jessie"
     environment:
-      SIMH_CHECKOUT: "9711fc017be7614a96ebe3759d779ab7de59bb96"
+      SIMH_CHECKOUT: "331f6897470d9a53508ad42db2d27f76ec6ddf4d"
     steps:
       - checkout
       - run:  apt-get update -myq && apt-get install -my git make gcc libncurses-dev autoconf libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev
