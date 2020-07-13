@@ -68,7 +68,7 @@ set rq3 dis
 att tq0 quas.tap
 set tti 7b
 set tto 7b
-set runlimit 8 minutes
+set runlimit 12 minutes
 set console telnet=65432
 SET CONSOLE TELNET=LOG=log_file
 set console telnet=buffered=1000000
