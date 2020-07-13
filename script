@@ -132,7 +132,7 @@ for c in 1 2 3 4 5 6 7 8; do
   echo ++++++++++++++++++++++++++++++++++++
   printf "NOK: "; grep -ac "Normal operation not possible." all_log_file
   printf "OK: "; grep -ac "System shutdown time has arrived" all_log_file
-  Printf "RUNS: $c"
+  printf "RUNS: $c"
 done
 }
 
