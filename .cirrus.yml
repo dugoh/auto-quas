@@ -1,8 +1,15 @@
 env:
   SIMH_CHECKOUT: "331f6897470d9a53508ad42db2d27f76ec6ddf4d"
-task:
+FreeBSD_12_1_R_task:
   freebsd_instance:
     image: freebsd-12-1-release-amd64
+  install_script: pkg install -y gmake git sdl2 sdl2_image pkgconf bash
+  script: 
+          - ln -s /usr/local/bin/bash /bin/bash
+          - bash -c "./script try ${SIMH_CHECKOUT}"
+FreeBSD_13_0_SNAP_task:
+  freebsd_instance:
+    image: freebsd-13-0-snap
   install_script: pkg install -y gmake git sdl2 sdl2_image pkgconf bash
   script: 
           - ln -s /usr/local/bin/bash /bin/bash
