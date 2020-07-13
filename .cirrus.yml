@@ -1,5 +1,5 @@
 env:
-  SIMH_CHECKOUT: "9711fc017be7614a96ebe3759d779ab7de59bb96"
+  SIMH_CHECKOUT: "331f6897470d9a53508ad42db2d27f76ec6ddf4d"
 task:
   freebsd_instance:
     image: freebsd-12-1-release-amd64
