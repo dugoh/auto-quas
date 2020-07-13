@@ -7,10 +7,10 @@ FreeBSD_12_1_R_task:
   script: 
           - ln -s /usr/local/bin/bash /bin/bash
           - bash -c "./script try ${SIMH_CHECKOUT}"
-FreeBSD_13_0_SNAP_task:
-  freebsd_instance:
-    image: freebsd-13-0-snap
-  install_script: pkg install -y gmake git sdl2 sdl2_image pkgconf bash
-  script: 
-          - ln -s /usr/local/bin/bash /bin/bash
-          - bash -c "./script try ${SIMH_CHECKOUT}"
+#FreeBSD_13_0_SNAP_task:
+#  freebsd_instance:
+#    image: freebsd-13-0-snap
+#  install_script: pkg install -y gmake git sdl2 sdl2_image pkgconf bash
+#  script: 
+#          - ln -s /usr/local/bin/bash /bin/bash
+#          - bash -c "./script try ${SIMH_CHECKOUT}"
