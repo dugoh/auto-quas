@@ -6,5 +6,4 @@ skip_commits:
   files:
     - .travis.yml
 build_script:
-# previous 550993a757e19369050165c20b05ff46dcd5c7bd
-  cmd: script.cmd 9711fc017be7614a96ebe3759d779ab7de59bb96
+  cmd: script.cmd 331f6897470d9a53508ad42db2d27f76ec6ddf4d
