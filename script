@@ -68,7 +68,7 @@ set rq3 dis
 att tq0 quas.tap
 set tti 7b
 set tto 7b
-set runlimit 9 minutes
+set runlimit 14 minutes
 set console telnet=65432
 SET CONSOLE TELNET=LOG=log_file
 set console telnet=buffered=1000000
@@ -132,6 +132,7 @@ for c in 1 2 3 4 5 6 7 8; do
   echo ++++++++++++++++++++++++++++++++++++
   printf "NOK: "; grep -ac "Normal operation not possible." all_log_file
   printf "OK: "; grep -ac "System shutdown time has arrived" all_log_file
+  Printf "RUNS: $c"
 done
 }
 
