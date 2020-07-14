@@ -125,10 +125,14 @@ for c in 1 2 3 4 5 6 7 8; do
   echo ++++++++++ run $c $(date) ++++++++++
   rm nvram.dat
   dd if=/dev/zero of=quas.dsk bs=512 count=1216665
+  date
   simh/BIN/microvax3900 rootdump.ini
+  date
   cat log_file; rm log_file
   rm nvram.dat
+  date
   simh/BIN/microvax3900 install.ini
+  date
   cat log_file |tee -a all_log_file
   rm log_file
   echo ++++++++++++++++++++++++++++++++++++
