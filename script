@@ -54,6 +54,7 @@ writeinis() {
 cat >config.ini <<__EOF__
 SET CPU 32M
 SET CPU NOIDLE
+SET CONSOLE SPEED 1200
 #SET CPU IDLE=QUASIJARUS
 set cr  dis
 set lpt dis
@@ -110,6 +111,7 @@ __EOF__
 
 cat >sv.ini<<__EOF__
 SHOW VERSION
+DO config.ini
 SHOW CONSOLE
 SHOW DEV
 QUIT
