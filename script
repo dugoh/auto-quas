@@ -54,7 +54,7 @@ writeinis() {
 cat >config.ini <<__EOF__
 SET CPU 32M
 SET CPU NOIDLE
-SET CONSOLE SPEED 1200
+SET CONSOLE SPEED=1200
 #SET CPU IDLE=QUASIJARUS
 set cr  dis
 set lpt dis
