@@ -5,59 +5,59 @@ matrix:
     - os: osx
       osx_image: xcode9.4
       env:
-       - SIMH_CHECKOUT=331f6897470d9a53508ad42db2d27f76ec6ddf4d
+       - SIMH_CHECKOUT=18472dc666937ab8ed0197f1ecf299035bd4ae29
        - OENV="macOS 10.13 - xcode9.4"
 
     - os: osx
       osx_image: xcode10.2
       env:
-       - SIMH_CHECKOUT=331f6897470d9a53508ad42db2d27f76ec6ddf4d
+       - SIMH_CHECKOUT=18472dc666937ab8ed0197f1ecf299035bd4ae29
        - OENV="macOS 10.14 - xcode10.2"
        
     - os: osx
       osx_image: xcode12
       env:
-       - SIMH_CHECKOUT=331f6897470d9a53508ad42db2d27f76ec6ddf4d
+       - SIMH_CHECKOUT=18472dc666937ab8ed0197f1ecf299035bd4ae29
        - OENV="macOS 10.15.5 - xcode12.0"
 
     - os: linux
       dist: xenial
       env:
-       - SIMH_CHECKOUT=331f6897470d9a53508ad42db2d27f76ec6ddf4d
+       - SIMH_CHECKOUT=18472dc666937ab8ed0197f1ecf299035bd4ae29
        - OENV="Linux xenial1"
 
     - os: linux
       dist: trusty
       env:
-       - SIMH_CHECKOUT=331f6897470d9a53508ad42db2d27f76ec6ddf4d
+       - SIMH_CHECKOUT=18472dc666937ab8ed0197f1ecf299035bd4ae29
        - OENV="Linux trusty"
 
     - os: linux
       arch: amd64
       dist: bionic
       env:
-       - SIMH_CHECKOUT=331f6897470d9a53508ad42db2d27f76ec6ddf4d
+       - SIMH_CHECKOUT=18472dc666937ab8ed0197f1ecf299035bd4ae29
        - OENV="Linux bionic"
 
     - os: linux
       arch: arm64
       dist: bionic
       env:
-       - SIMH_CHECKOUT=331f6897470d9a53508ad42db2d27f76ec6ddf4d
+       - SIMH_CHECKOUT=18472dc666937ab8ed0197f1ecf299035bd4ae29
        - OENV="Linux bionic"
 
     - os: linux
       arch: s390x
       dist: bionic
       env:
-       - SIMH_CHECKOUT=331f6897470d9a53508ad42db2d27f76ec6ddf4d
+       - SIMH_CHECKOUT=18472dc666937ab8ed0197f1ecf299035bd4ae29
        - OENV="Linux bionic"
 
     - os: linux
       arch: ppc64le
       dist: bionic
       env:
-       - SIMH_CHECKOUT=331f6897470d9a53508ad42db2d27f76ec6ddf4d
+       - SIMH_CHECKOUT=18472dc666937ab8ed0197f1ecf299035bd4ae29
        - OENV="Linux bionic"
 
     
