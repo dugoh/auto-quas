@@ -7,7 +7,7 @@ jobs:
       SIMH_CHECKOUT: "331f6897470d9a53508ad42db2d27f76ec6ddf4d"
     steps:
       - checkout
-      - run:  apt-get update -myq && apt-get install -my git make gcc libncurses-dev autoconf libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev
+      - run:  apt-get update -myq && apt-get install -my git openssh-client make gcc libncurses-dev autoconf libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev
       - run:
           name: build-stretch
           command: ./script try "${SIMH_CHECKOUT}"
@@ -22,7 +22,7 @@ jobs:
       SIMH_CHECKOUT: "331f6897470d9a53508ad42db2d27f76ec6ddf4d"
     steps:
       - checkout
-      - run:  apt-get update -myq && apt-get install -my git make gcc libncurses-dev autoconf libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev
+      - run:  apt-get update -myq && apt-get install -my git openssh-client make gcc libncurses-dev autoconf libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev
       - run:
           name: build-jessie
           command: ./script try "${SIMH_CHECKOUT}"
