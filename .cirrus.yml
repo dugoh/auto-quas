@@ -3,8 +3,6 @@ task:
   freebsd_instance:
     matrix:
       image_family: freebsd-13-0-snap
-      image_family: freebsd-12-1
-      image_family: freebsd-11-4
   env:
     SIMH_CHECKOUT: "18472dc666937ab8ed0197f1ecf299035bd4ae29"
   install_script: pkg install -y gmake git sdl2 sdl2_image pkgconf bash
