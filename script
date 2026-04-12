@@ -13,7 +13,8 @@ buildgzcompat() {
     echo '#include <stdlib.h>'
     tar -xOf compress/compress.tar ucb/compress/gzcompat.c
   )>gzcompat.c
-  sed -i 's/int main(argc, argv)/int main(int argc, char **argv)/' gzcompat.c
+  sed -i 's/int main(argc, argv)/int main(int argc, char **argv)/
+            /^[[:space:]]*char \*\*argv;[[:space:]]*$/d' gzcompat.c
   gcc -O -o gzcompat gzcompat.c || cc -O -o gzcompat gzcompat.c
 }
 
