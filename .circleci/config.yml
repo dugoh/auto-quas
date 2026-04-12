@@ -18,6 +18,7 @@ jobs:
           command: |
             apt-get update -qq && \
             apt-get install -y --no-install-recommends \
+              procps \
               ca-certificates curl openssh-client git \
               build-essential make gcc autoconf \
               libncurses-dev libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev libedit-dev
