@@ -1,9 +1,18 @@
+version: 1.0
+
 platform:
   - x86
+
+image: Visual Studio 2022
+
 cache:
   - ../windows-build
+
 skip_commits:
   files:
-    - .travis.yml
+    - .circleci/*
+
+build: off
+
 build_script:
-  cmd: script.cmd 18472dc666937ab8ed0197f1ecf299035bd4ae29
+  - script.cmd b0f160fc5ad44b843bb212462b1292004a3bebca
