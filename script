@@ -1,25 +1,25 @@
 #!/bin/bash
 
 buildsimh() {
-git clone https://github.com/simh/simh.git
-cd simh
-git checkout $1
-gmake vax || make vax
-cd ..
+  git clone https://github.com/simh/simh.git
+  cd simh
+  git checkout $1
+  gmake vax || make vax
+  cd ..
 }
 
 buildgzcompat() {
-(
-  echo '#include <stdlib.h>'
-  tar -xOf compress/compress.tar ucb/compress/gzcompat.c
-)>gzcompat.c
-
-gcc -O -o gzcompat gzcompat.c || cc -O -o gzcompat gzcompat.c
+  (
+    echo '#include <stdlib.h>'
+    tar -xOf compress/compress.tar ucb/compress/gzcompat.c
+  )>gzcompat.c
+  sed -i 's/int main(argc, argv)/int main(int argc, char **argv)/' gzcompat.c
+  gcc -O -o gzcompat gzcompat.c || cc -O -o gzcompat gzcompat.c
 }
 
 buildgzcompatwin() {
-tar -xOf compress/compress.tar ucb/compress/gzcompat.c >gzcompat.c
-patch gzcompat.c <<__EOF__
+  tar -xOf compress/compress.tar ucb/compress/gzcompat.c >gzcompat.c
+  patch gzcompat.c <<__EOF__
 7a8,12
 > #include <stdlib.h>
 > #ifdef _WIN32
@@ -36,22 +36,23 @@ patch gzcompat.c <<__EOF__
 >         setmode(fileno(stdin),O_BINARY);
 > #endif
 __EOF__
-gcc -O -o gzcompat gzcompat.c
+  sed -i 's/int main(argc, argv)/int main(int argc, char **argv)/' gzcompat.c
+  gcc -O -o gzcompat gzcompat.c
 }
 
 maketap() {
-cat 4.3BSD-Quasijarus0c/miniroot.Z   | ./gzcompat | gzip -dc > miniroot
-cat 4.3BSD-Quasijarus0c/rootdump.Z   | ./gzcompat | gzip -dc > rootdump
-cat 4.3BSD-Quasijarus0c/src.tar.Z    | ./gzcompat | gzip -dc > src.tar
-cat 4.3BSD-Quasijarus0c/srcsys.tar.Z | ./gzcompat | gzip -dc > srcsys.tar
-cat 4.3BSD-Quasijarus0c/stand.Z      | ./gzcompat | gzip -dc > stand
-cat 4.3BSD-Quasijarus0c/usr.tar.Z    | ./gzcompat | gzip -dc > usr.tar
-perl mkdisttap/mkdisttap.pl > quas.tap
-cksum miniroot rootdump src.tar srcsys.tar stand usr.tar quas.tap
+  cat 4.3BSD-Quasijarus0c/miniroot.Z   | ./gzcompat | gzip -dc > miniroot
+  cat 4.3BSD-Quasijarus0c/rootdump.Z   | ./gzcompat | gzip -dc > rootdump
+  cat 4.3BSD-Quasijarus0c/src.tar.Z    | ./gzcompat | gzip -dc > src.tar
+  cat 4.3BSD-Quasijarus0c/srcsys.tar.Z | ./gzcompat | gzip -dc > srcsys.tar
+  cat 4.3BSD-Quasijarus0c/stand.Z      | ./gzcompat | gzip -dc > stand
+  cat 4.3BSD-Quasijarus0c/usr.tar.Z    | ./gzcompat | gzip -dc > usr.tar
+  perl mkdisttap/mkdisttap.pl > quas.tap
+  cksum miniroot rootdump src.tar srcsys.tar stand usr.tar quas.tap
 }
 
 writeinis() {
-cat >config.ini <<__EOF__
+  cat >config.ini <<__EOF__
 SET CPU 32M
 SET CPU NOIDLE
 SET CONSOLE SPEED=1200
@@ -75,7 +76,7 @@ SET CONSOLE TELNET=LOG=log_file
 set console telnet=buffered=1000000
 __EOF__
 
-cat >rootdump.ini <<__EOF__
+  cat >rootdump.ini <<__EOF__
 DO config.ini
 EXPECT ">>>"               SEND "boot mua0:\r"                          ;GO
 EXPECT "\r\n\n="           SEND "copy\r"                                ;GO
@@ -93,7 +94,7 @@ EXPECT "sync\r\n# "       ;QUIT
 BOOT CPU
 __EOF__
 
-cat >install.ini <<"__EOF__"
+  cat >install.ini <<"__EOF__"
 DO config.ini
 ATT NVR nvram.dat
 DEP BDR 1
@@ -109,7 +110,7 @@ BOOT CPU
 QUIT
 __EOF__
 
-cat >sv.ini<<__EOF__
+  cat >sv.ini<<__EOF__
 SHOW VERSION
 DO config.ini
 SHOW CONSOLE
@@ -117,39 +118,38 @@ SHOW DEV
 SHOW CLOCKS
 QUIT
 __EOF__
-
 }
 
 runit() {
-simh/BIN/microvax3900 sv.ini
-for c in 1 2 3 4 5 6 7 8; do
-  echo ++++++++++ run $c $(date) ++++++++++
-  rm nvram.dat
-  dd if=/dev/zero of=quas.dsk bs=512 count=1216665
-  date
-  simh/BIN/microvax3900 rootdump.ini
-  date
-  cat log_file; rm log_file
-  rm nvram.dat
-  date
-  simh/BIN/microvax3900 install.ini
-  date
-  cat log_file |tee -a all_log_file
-  rm log_file
-  echo ++++++++++++++++++++++++++++++++++++
-  printf "NOK: "; grep -ac "Normal operation not possible." all_log_file
-  printf "OK: "; grep -ac "System shutdown time has arrived" all_log_file
-  echo "RUNS: $c"
-done
+  simh/BIN/microvax3900 sv.ini
+  for c in 1 2 3 4 5 6 7 8; do
+    echo ++++++++++ run $c $(date) ++++++++++
+    rm nvram.dat
+    dd if=/dev/zero of=quas.dsk bs=512 count=1216665
+    date
+    simh/BIN/microvax3900 rootdump.ini
+    date
+    cat log_file; rm log_file
+    rm nvram.dat
+    date
+    simh/BIN/microvax3900 install.ini
+    date
+    cat log_file |tee -a all_log_file
+    rm log_file
+    echo ++++++++++++++++++++++++++++++++++++
+    printf "NOK: "; grep -ac "Normal operation not possible." all_log_file
+    printf "OK: "; grep -ac "System shutdown time has arrived" all_log_file
+    echo "RUNS: $c"
+  done
 }
 
 main() {
-echo main
-buildsimh $1
-buildgzcompat
-maketap
-writeinis
-runit
+  echo main
+  buildsimh $1
+  buildgzcompat
+  maketap
+  writeinis
+  runit
 }
 
 echo starting
