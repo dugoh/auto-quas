@@ -20,7 +20,9 @@ jobs:
             apt-get install -y --no-install-recommends \
               ca-certificates curl openssh-client git \
               build-essential make gcc autoconf \
-              libncurses-dev libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev libedit-dev libpcre2-dev
+              libncurses-dev libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev libedit-dev
+            apt-get install -y --no-install-recommends libpcre2-dev || true
+            apt-get install -y --no-install-recommends libpcre3-dev || true
       - run:
           name: Build on Debian << parameters.release >>
           command: ./script try "${SIMH_CHECKOUT}"
