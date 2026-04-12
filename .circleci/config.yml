@@ -18,8 +18,9 @@ jobs:
           command: |
             apt-get update -qq && \
             apt-get install -y --no-install-recommends \
-              git openssh-client make gcc libncurses-dev autoconf \
-              libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev
+              ca-certificates git openssh-client \
+              make gcc autoconf \
+              libncurses-dev libsdl2-dev libpng-dev libpcap-dev libvdeplug-dev
       - run:
           name: Build on Debian << parameters.release >>
           command: ./script try "${SIMH_CHECKOUT}"
