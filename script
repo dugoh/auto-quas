@@ -28,9 +28,12 @@ buildgzcompatwin() {
 >   #include <io.h>
 >   #include <fcntl.h>
 > #endif
-31a37
->         int argc;
-39c45,48
+31,32c36
+< int main(argc, argv)
+<$(printf ' \t')char **argv;
+---
+> int main(int argc, char **argv)
+39c43,46
 <$(printf ' ')
 ---
 > #ifdef _WIN32
@@ -38,8 +41,6 @@ buildgzcompatwin() {
 >         setmode(fileno(stdin),O_BINARY);
 > #endif
 __EOF__
-  sed -i 's/int main(argc, argv)/int main(int argc, char **argv)/
-           /^[[:space:]]*char \*\*argv;[[:space:]]*$/d' gzcompat.c
   gcc -O -o gzcompat gzcompat.c
 }
 
