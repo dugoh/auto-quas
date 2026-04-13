@@ -1,6 +1,6 @@
 git clone https://github.com/simh/simh.git
-git checkout %1
 CD simh
+git checkout %1
 build_vstudio.bat BuildROMs VAX|more
 CD ..
 COPY C:\projects\auto-quas\simh\BIN\NT\Win32-Release\MicroVAX3900.exe C:\projects\auto-quas\simh\BIN
