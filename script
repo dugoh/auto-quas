@@ -16,6 +16,7 @@ buildgzcompat() {
   sed -i 's/int main(argc, argv)/int main(int argc, char **argv)/
            /^[[:space:]]*char \*\*argv;[[:space:]]*$/d' gzcompat.c
   gcc -O -o gzcompat gzcompat.c || cc -O -o gzcompat gzcompat.c
+cat gzcompat.c
 }
 
 buildgzcompatwin() {
