@@ -143,7 +143,6 @@ runit() {
     printf "NOK: "; grep -ac "Normal operation not possible." all_log_file
     printf "OK: "; grep -ac "System shutdown time has arrived" all_log_file
     echo "RUNS: $c"
-    return 0
   done
 }
 
