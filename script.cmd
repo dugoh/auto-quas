@@ -1,14 +1,3 @@
-echo
-echo =====================================================
-echo try to find stuffs
-rem dir /s /b c:\|find /I "mingw"|find /I "\bin\"
-echo =====================================================
-echo
-echo =====================================================
-dir /s /b c:\ | find /I "bash.exe"
-echo =====================================================
-echo
-
 git clone https://github.com/simh/simh.git
 git checkout %1
 CD simh
