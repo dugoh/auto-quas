@@ -8,6 +8,8 @@ SET OPATH=%PATH%
 SET PATH=C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin;%OPATH%;C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin
 
 bash -c './script buildgzcompatwin'
+echo
+echo
 TYPE gzcompat.c
 
 bash -c './script maketap'
